@@ -19,22 +19,22 @@ using WealthLab.Community;
 
 namespace WealthScript2
 {
-	public class MyStrategy : UserStrategyBase
-	{
-		//create indicators and other objects here, this is executed prior to the main trading loop
-		public override void Initialize(BarHistory bars)
-		{
-			PlotIndicator(new HiLoLimit(bars, 14, 2.00, 2.00), WLColor.FromArgb(255, 0, 0, 255), PlotStyle.Line);
-		}
+    public class MyStrategy : UserStrategyBase
+    {
+        //create indicators and other objects here, this is executed prior to the main trading loop
+        public override void Initialize(BarHistory bars)
+        {
+            PlotIndicator(new HiLoLimit(bars, 14, 2.00, 2.00), WLColor.FromArgb(255, 0, 0, 255), PlotStyle.Line);
+        }
 
-		//execute the strategy rules here, this is executed once for each bar in the backtest history
-		public override void Execute(BarHistory bars, int idx)
-		{
-		}
+        //execute the strategy rules here, this is executed once for each bar in the backtest history
+        public override void Execute(BarHistory bars, int idx)
+        {
+        }
 
-		//declare private variables below
+        //declare private variables below
 
-	}
+    }
 }
 ```
 
@@ -56,11 +56,11 @@ Using DrawLinRegChannel:
             Color col = new Color();
             if (idx >= bars.Count-100)
             {
-				if ( bars.Close[idx] > bars.Close[idx - 50])
-					col = Color.Green;
-				else col = Color.Red;
+                if ( bars.Close[idx] > bars.Close[idx - 50])
+                    col = Color.Green;
+                else col = Color.Red;
 
-				DrawLinRegChannel(idx, bars.AveragePriceHL, 45, 2, Color.FromArgb(30, col), PlotStyles.Line, 2);
+                DrawLinRegChannel(idx, bars.AveragePriceHL, 45, 2, Color.FromArgb(30, col), PlotStyles.Line, 2);
             }
         } 
 ```
